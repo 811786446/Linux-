@@ -1,0 +1,32 @@
+gdb：
+基础：在编译命令后面加上 -g 选项，生成 debug 版本的可执行程序。
+  -g  添加调试信息
+gdb下按回车，重复执行上一条命令
+ r:   程序运行
+ b [行号]：打断点
+ b [filename]:[行号]  : 在filename这个文件的[行号]打断点
+ delete breakpoints [序号]： 删除指定断点，不带序号就删除所有断点
+ i b:    查看断点信息
+ disable [序号]:   使断点不生效
+ enable [序号]:    使断点生效  
+ n :    逐过程调试
+ s :    逐语句调试(进入函数内部）
+display 变量名：跟踪查看一个变量，每次停下来都显示它的值
+undisplay： 取消对先前设置的那些变量的跟踪
+p  [变量名]:    打印变量值
+set [变量名]:    修改变量
+display [变量名]：跟踪查看一个变量，每次停下来都显示它的值
+undisplay [变量名]:  取消跟踪
+i locals：  当前作用域里的临时变量信息
+c :     继续执行到结束或者下个断点
+q ：    退出调试
+bt / where：    查看调用堆栈
+disassembler    查看汇编
+
+如果程序正在运行：
+gdb -p [进程PID] / gdb attach  [进程PID]
+
+如果进程崩溃了(事后)：
+ulimit -a 
+ulimit -c 
+gdb   可执行文件  coredump文件
